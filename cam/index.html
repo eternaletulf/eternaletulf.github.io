@@ -37,7 +37,7 @@
 </button>
 
 <p>
-    <input id="foo" data-jscolor="" value="cc4499">
+    <input id="foo"  data-jscolor="{hash:true}" value="#FFFFFF">
 
     <script>
         var video = document.querySelector("#videoElement");
@@ -57,10 +57,9 @@
 
         function updateBackground() {
             var foos = document.getElementById("foo").value;
-            document.body.style.backgroundColor = "#"+ foos;
+            document.body.style.backgroundColor = foos;
             console.log("color should be ", foos);
             console.log("color is ", document.body.style.backgroundColor);
-
         }
 
 
