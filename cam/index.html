@@ -5,9 +5,6 @@
     <title>Local Camera preview</title>
 
     <style>
-        #body{
-
-        }
         #box {
             margin: 0 auto;
             width: max-content;
@@ -30,6 +27,18 @@
 
     </video>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.1.0/jscolor.min.js"></script>
+
+<button onclick="document.getElementById('foo').jscolor.show()">
+    Show Picker</button>
+
+<button onclick="document.getElementById('foo').jscolor.hide()">
+    Hide Picker</button>
+
+<p>
+    <input id="foo" data-jscolor="" value="cc4499">
+
 <script>
     var video = document.querySelector("#videoElement");
 
