@@ -5,11 +5,8 @@
     <title>Local Camera preview</title>
 
     <style>
-        #box {
-            margin: 0 auto;
-            width: max-content;
-            height: max-content;
-            border: 10px #333 solid;
+        #body {
+            background-color: white;
         }
 
         #videoElement {
@@ -21,7 +18,7 @@
 
 </head>
 
-<body>
+<body id="body">
 <div id="box">
     <video autoplay="true" id="videoElement">
 
@@ -30,29 +27,38 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.1.0/jscolor.min.js"></script>
 
-<button onclick="document.getElementById('foo').jscolor.show()">
-    Show Picker</button>
-
-<button onclick="document.getElementById('foo').jscolor.hide()">
-    Hide Picker</button>
+<button onclick="updateBackground()">
+    Show Picker
+</button>
 
 <p>
     <input id="foo" data-jscolor="" value="cc4499">
 
-<script>
-    var video = document.querySelector("#videoElement");
+    <script>
+        var video = document.querySelector("#videoElement");
 
-    if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({
-            video: true
-        })
-            .then(function (stream) {
-                video.srcObject = stream;
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({
+                video: true
             })
-            .catch(function (err0r) {
-                console.log("Something went wrong!");
-            });
-    }
-</script>
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (err0r) {
+                    console.log("Something went wrong!");
+                });
+        }
+
+
+        function updateBackground() {
+            var foos = document.getElementById("foo").value;
+            document.body.style.backgroundColor = "#"+ foos;
+            console.log("color should be ", foos);
+            console.log("color is ", document.body.style.backgroundColor);
+
+        }
+
+
+    </script>
 </body>
 </html>
