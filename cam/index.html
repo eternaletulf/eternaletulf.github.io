@@ -6,11 +6,11 @@
 
     <style>
         #body {
-            background-color: white;
+            background-color: #00ff00;
         }
 
         #box {
-            margin: 0 auto;
+            margin: 40px auto;
             width: max-content;
             height: max-content;
         }
@@ -33,11 +33,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.1.0/jscolor.min.js"></script>
 
 <button onclick="updateBackground()">
-    Show Picker
+    Apply Color
 </button>
 
 <p>
-    <input id="foo"  data-jscolor="{hash:true}" value="#FFFFFF">
+    <input id="foo"  data-jscolor="{hash:true}" value="#00FF00">
 
     <script>
         var video = document.querySelector("#videoElement");
@@ -60,6 +60,11 @@
             document.body.style.backgroundColor = foos;
             console.log("color should be ", foos);
             console.log("color is ", document.body.style.backgroundColor);
+
+            var foo = document.getElementById("foo");
+            foo.select();
+            foo.setSelectionRange(0, 99999);
+            document.execCommand('copy');
         }
 
 
